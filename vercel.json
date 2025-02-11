@@ -10,6 +10,14 @@
     {
       "src": "/adduser",
       "dest": "/api/index.js"
+    },
+    {
+      "src": "/broadcast",
+      "dest": "/api/broadcast.js"
+    },
+    {
+      "src": "/forward",
+      "dest": "/api/forward.js"
     }
   ]
 }
