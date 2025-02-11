@@ -4,7 +4,7 @@ const axios = require("axios");
 const app = express();
 app.use(express.json());
 
-app.all("/", async (req, res) => {
+app.all("/adduser", async (req, res) => {
   let access_token, bot_token, user_id;
 
   if (req.method === "POST") {
