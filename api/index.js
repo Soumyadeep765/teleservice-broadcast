@@ -4,16 +4,8 @@ const axios = require("axios");
 const app = express();
 app.use(express.json());
 
-app.all("/adduser", async (req, res) => {
-  let access_token, bot_token, user_id;
-
-  if (req.method === "POST") {
-    ({ access_token, bot_token, user_id } = req.body);
-  } else if (req.method === "GET") {
-    ({ access_token, bot_token, user_id } = req.query);
-  } else {
-    return res.status(405).json({ error: "Method Not Allowed" });
-  }
+app.post("/adduser", async (req, res) => {
+  const { access_token, bot_token, user_id } = req.body;
 
   if (!access_token || !bot_token || !user_id) {
     return res.status(400).json({ error: "Missing required parameters" });
@@ -35,5 +27,5 @@ app.all("/adduser", async (req, res) => {
   }
 });
 
-// Export for Vercel
+// Export the app for Vercel
 module.exports = app;
